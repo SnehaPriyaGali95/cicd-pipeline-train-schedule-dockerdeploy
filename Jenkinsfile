@@ -7,7 +7,9 @@ pipeline {
                 sh './gradlew build --no-daemon'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
-         stage('Build Docker Image') {
+        }
+    }
+    stage('Build Docker Image') {
             when {
                 branch 'master'
             }
@@ -19,7 +21,5 @@ pipeline {
                     }
                 }
             }
-          }
-        }
-    }
+      }
 }
